@@ -26,6 +26,7 @@
         <module>litemall-admin-api</module>
         <module>litemall-all</module>
         <module>litemall-all-war</module>
+        <module>ottpay-sdk</module>
     </modules>
 
     <dependencyManagement>

@@ -6,3 +6,6 @@ use litemall;
 create user 'litemall'@'%' identified by 'litemall123456';
 grant all privileges on litemall.* to 'litemall'@'%';
 flush privileges;
+
+repair database index
+    -- repair table mysql.db use_frm;

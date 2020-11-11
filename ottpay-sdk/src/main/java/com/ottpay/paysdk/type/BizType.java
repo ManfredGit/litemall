@@ -1,0 +1,5 @@
+package com.ottpay.paysdk.type;
+
+public enum BizType {
+    WECHATPAY, ALIPAY, ALIPAYONLINE, GIFTCARD, ALADDIN, UNIONPAY, APUSDONLINE, UPAYONLINE, APUSD, ELAVONECOM;
+}

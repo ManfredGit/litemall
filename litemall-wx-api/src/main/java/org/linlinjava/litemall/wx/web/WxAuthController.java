@@ -117,7 +117,9 @@ public class WxAuthController {
     @PostMapping("login_by_weixin")
     public Object loginByWeixin(@RequestBody WxLoginInfo wxLoginInfo, HttpServletRequest request) {
         String code = wxLoginInfo.getCode();
+        System.out.println("========loginByWeixin, code: "+code);
         UserInfo userInfo = wxLoginInfo.getUserInfo();
+        System.out.println("========loginByWeixin, userInfo: "+userInfo.toString());
         if (code == null || userInfo == null) {
             return ResponseUtil.badArgument();
         }
@@ -128,6 +130,7 @@ public class WxAuthController {
             WxMaJscode2SessionResult result = this.wxService.getUserService().getSessionInfo(code);
             sessionKey = result.getSessionKey();
             openId = result.getOpenid();
+            System.out.println("========loginByWeixin, openId: "+openId);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -138,6 +141,7 @@ public class WxAuthController {
 
         LitemallUser user = userService.queryByOid(openId);
         if (user == null) {
+            System.out.println("========loginByWeixin, user: "+user.toString());
             user = new LitemallUser();
             user.setUsername(openId);
             user.setPassword(openId);
